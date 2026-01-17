@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#06f906",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#0f230f",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>Evaluación Inicial - TecnoAmigo</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col transition-colors duration-300">
+<!-- Top Navigation Bar -->
+<header class="flex items-center bg-white dark:bg-[#1a2e1a] p-4 sticky top-0 z-10">
+<div class="text-[#111811] dark:text-white flex size-12 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111811] dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-12">
+            Evaluación Inicial
+        </h2>
+</header>
+<main class="flex-1 flex flex-col max-w-md mx-auto w-full px-4 pb-8">
+<!-- Progress Bar Component -->
+<div class="flex flex-col gap-2 py-4">
+<div class="flex justify-between items-center">
+<p class="text-[#111811] dark:text-gray-200 text-sm font-medium">Pregunta 1 de 5</p>
+<p class="text-[#111811] dark:text-gray-400 text-xs font-normal">20%</p>
+</div>
+<div class="rounded-full bg-gray-200 dark:bg-gray-700 h-2 overflow-hidden">
+<div class="h-full bg-primary" style="width: 20%;"></div>
+</div>
+</div>
+<!-- Hero Icon Area -->
+<div class="flex justify-center items-center py-8">
+<div class="bg-primary/10 dark:bg-primary/20 p-8 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[#111811] dark:text-primary" style="font-size: 100px;">
+                    smartphone
+                </span>
+</div>
+</div>
+<!-- Question Header -->
+<div class="pb-6">
+<h1 class="text-[#111811] dark:text-white text-[22px] font-bold leading-tight text-center">
+                ¿Has usado WhatsApp antes?
+            </h1>
+</div>
+<!-- Selection Cards (RadioList Variant) -->
+<div class="flex flex-col gap-3 flex-1" style="--radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27%23111811%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%273%27/%3e%3c/svg%3e');">
+<!-- Selected Card -->
+<label class="flex items-center gap-4 rounded-xl border-2 border-primary bg-primary/10 p-5 flex-row-reverse cursor-pointer transition-all">
+<input checked="" class="h-5 w-5 border-2 border-primary bg-transparent text-transparent checked:border-[#111811] checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0" name="q1" type="radio"/>
+<div class="flex grow flex-col">
+<p class="text-[#111811] dark:text-white text-base font-semibold">Nunca lo he usado</p>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="flex items-center gap-4 rounded-xl border border-solid border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a2e1a] p-5 flex-row-reverse cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-800">
+<input class="h-5 w-5 border-2 border-gray-300 dark:border-gray-600 bg-transparent text-transparent checked:border-[#111811] checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0" name="q1" type="radio"/>
+<div class="flex grow flex-col">
+<p class="text-[#111811] dark:text-white text-base font-medium">Lo uso poco (con ayuda)</p>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="flex items-center gap-4 rounded-xl border border-solid border-gray-300 dark:border-gray-700 bg-white dark:bg-[#1a2e1a] p-5 flex-row-reverse cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-800">
+<input class="h-5 w-5 border-2 border-gray-300 dark:border-gray-600 bg-transparent text-transparent checked:border-[#111811] checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0" name="q1" type="radio"/>
+<div class="flex grow flex-col">
+<p class="text-[#111811] dark:text-white text-base font-medium">Lo uso seguido</p>
+</div>
+</label>
+</div>
+<!-- Action Footer -->
+<div class="mt-auto pt-8 flex flex-col gap-4">
+<button class="w-full bg-primary text-[#111811] font-bold py-4 rounded-xl shadow-lg active:scale-95 transition-transform text-lg">
+                Siguiente
+            </button>
+<button class="w-full py-2 text-gray-500 dark:text-gray-400 text-sm font-medium underline underline-offset-4 decoration-1">
+                Saltar evaluación
+            </button>
+</div>
+<!-- Safe area padding for mobile -->
+<div class="h-4"></div>
+</main>
+</body></html>

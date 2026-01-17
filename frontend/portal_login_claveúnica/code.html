@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portal Login ClaveÚnica</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#50c2f7",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .chile-stripe {
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(to right, #0039a6 33%, #ffffff 33%, #ffffff 66%, #d52b1e 66%);
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="chile-stripe"></div>
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-2">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined" style="font-size: 28px;">fingerprint</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[#111618] dark:text-white text-sm font-bold leading-tight">ClaveÚnica</span>
+<span class="text-[#607d8a] text-[10px] uppercase tracking-wider">Gobierno de Chile</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="text-[#607d8a] hover:text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">contrast</span>
+</button>
+<div class="flex items-center border-l border-gray-200 dark:border-gray-700 ml-2 pl-3 gap-2">
+<button class="text-[#607d8a] font-bold text-xs">A-</button>
+<button class="text-[#607d8a] font-bold text-sm">A+</button>
+</div>
+</div>
+</div>
+<main class="flex-1 flex flex-col items-center px-4 max-w-[480px] mx-auto w-full pb-24">
+<div class="w-full pt-10 pb-6">
+<h2 class="text-[#111618] dark:text-white tracking-tight text-[28px] font-bold leading-tight text-center">
+                    Portal Ciudadano ClaveÚnica
+                </h2>
+<p class="text-[#607d8a] text-center mt-2 text-sm">Inicia sesión para acceder a tus servicios del Estado</p>
+</div>
+<div class="w-full space-y-4 mt-4">
+<div class="flex flex-col w-full">
+<label class="flex flex-col w-full">
+<p class="text-[#111618] dark:text-gray-200 text-base font-semibold leading-normal pb-2">RUN</p>
+<input class="form-input flex w-full rounded-lg text-[#111618] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe2e6] dark:border-gray-700 bg-white dark:bg-gray-900 h-14 placeholder:text-[#607d8a] p-[15px] text-lg font-normal leading-normal shadow-sm" placeholder="12.345.678-9" type="text" value=""/>
+</label>
+</div>
+<div class="flex flex-col w-full">
+<label class="flex flex-col w-full">
+<p class="text-[#111618] dark:text-gray-200 text-base font-semibold leading-normal pb-2">ClaveÚnica</p>
+<div class="flex w-full items-stretch rounded-lg shadow-sm">
+<input class="form-input flex w-full min-w-0 flex-1 rounded-lg rounded-r-none border-r-0 text-[#111618] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe2e6] dark:border-gray-700 bg-white dark:bg-gray-900 h-14 placeholder:text-[#607d8a] p-[15px] text-lg font-normal leading-normal" placeholder="••••••••" type="password" value=""/>
+<div class="text-primary flex border border-[#dbe2e6] dark:border-gray-700 bg-white dark:bg-gray-900 items-center justify-center px-4 rounded-r-lg border-l-0">
+<span class="material-symbols-outlined cursor-pointer">visibility</span>
+</div>
+</div>
+</label>
+</div>
+<div class="flex justify-between items-center py-2">
+<a class="text-[#607d8a] dark:text-gray-400 text-sm font-medium hover:underline" href="#">¿Olvidaste tu clave?</a>
+<a class="text-primary text-sm font-bold hover:underline" href="#">Recuperar aquí</a>
+</div>
+<div class="pt-6">
+<button class="w-full bg-primary hover:bg-primary/90 text-white text-lg font-bold py-4 rounded-lg shadow-md transition-colors flex items-center justify-center gap-2">
+                        INGRESAR
+                        <span class="material-symbols-outlined">login</span>
+</button>
+</div>
+</div>
+<div class="w-full mt-10 border-t border-gray-200 dark:border-gray-800 pt-8 text-center">
+<p class="text-[#607d8a] text-sm mb-4">¿No tienes ClaveÚnica?</p>
+<button class="w-full border-2 border-primary text-primary font-bold py-3 rounded-lg hover:bg-primary/5 transition-colors">
+                    SOLICITAR CLAVEÚNICA
+                </button>
+</div>
+</main>
+<div class="fixed bottom-6 left-4 right-4 z-40">
+<div class="bg-green-600 text-white p-4 rounded-xl shadow-2xl flex items-center gap-3 border-2 border-green-400/30">
+<div class="bg-white/20 p-2 rounded-full">
+<span class="material-symbols-outlined text-white">school</span>
+</div>
+<div>
+<p class="font-bold text-sm">Simulador educativo</p>
+<p class="text-xs text-green-50 opacity-90">No uses tu ClaveÚnica real en este ejercicio.</p>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 z-[60] bg-background-light dark:bg-background-dark flex flex-col hidden">
+<div class="chile-stripe"></div>
+<div class="p-8 flex flex-col items-center justify-center flex-1">
+<div class="size-20 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined" style="font-size: 48px;">check_circle</span>
+</div>
+<h2 class="text-2xl font-bold text-[#111618] dark:text-white mb-2">¡Ingreso exitoso!</h2>
+<p class="text-[#607d8a] text-center mb-10">Has accedido correctamente al Portal Ciudadano.</p>
+<div class="w-full max-w-sm space-y-4">
+<p class="text-sm font-bold text-[#111618] dark:text-white uppercase tracking-widest px-2">Servicios Disponibles</p>
+<div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden shadow-sm">
+<div class="flex items-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-b border-gray-100 dark:border-gray-800 cursor-pointer">
+<div class="size-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center mr-4">
+<span class="material-symbols-outlined">health_and_safety</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-[#111618] dark:text-white">Fonasa</p>
+<p class="text-xs text-[#607d8a]">Certificados y cotizaciones</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">chevron_right</span>
+</div>
+<div class="flex items-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-b border-gray-100 dark:border-gray-800 cursor-pointer">
+<div class="size-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center mr-4">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-[#111618] dark:text-white">Pensiones (IPS)</p>
+<p class="text-xs text-[#607d8a]">Consulta de beneficios</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">chevron_right</span>
+</div>
+<div class="flex items-center p-4 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<div class="size-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center mr-4">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-[#111618] dark:text-white">SII</p>
+<p class="text-xs text-[#607d8a]">Declaración de renta</p>
+</div>
+<span class="material-symbols-outlined text-gray-400">chevron_right</span>
+</div>
+</div>
+<button class="w-full mt-6 bg-gray-100 dark:bg-gray-800 text-[#111618] dark:text-white font-bold py-4 rounded-lg">
+                        CERRAR SESIÓN
+                    </button>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

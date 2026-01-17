@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TecnoAmigo - Transición</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0bda0b",
+              "background-light": "#f5f8f5",
+              "background-dark": "#102210",
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .checkmark-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col items-center justify-between">
+<!-- Top Navigation Bar -->
+<div class="w-full bg-white dark:bg-black/20 flex items-center p-4">
+<div class="text-[#111811] dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-[#111811] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">TecnoAmigo</h2>
+</div>
+<!-- Main Content Container -->
+<div class="flex-1 w-full max-w-md px-6 flex flex-col items-center justify-center py-8">
+<!-- Celebration Icon -->
+<div class="mb-6 flex items-center justify-center">
+<div class="bg-primary/10 rounded-full p-8">
+<span class="material-symbols-outlined text-primary text-[120px] checkmark-fill">check_circle</span>
+</div>
+</div>
+<!-- Headline -->
+<h2 class="text-[#111811] dark:text-white tracking-tight text-[28px] font-bold leading-tight text-center pb-3">
+            ¡Lo lograste!
+        </h2>
+<!-- Body Text -->
+<p class="text-[#111811] dark:text-gray-300 text-[18px] font-normal leading-relaxed text-center px-2 mb-8">
+            Has completado todas las lecciones. Ahora estás listo para usar la aplicación real con total seguridad.
+        </p>
+<!-- Transition Visual Card -->
+<div class="w-full p-6 bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-gray-100 dark:border-zinc-800 mb-8">
+<div class="flex items-center justify-around gap-4">
+<!-- Simulator Representation -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-16 h-16 bg-gray-100 dark:bg-zinc-800 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300">
+<span class="material-symbols-outlined text-gray-400 text-3xl">terminal</span>
+</div>
+<span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Simulador</span>
+</div>
+<!-- Direction Arrow -->
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary text-4xl">trending_flat</span>
+</div>
+<!-- Real App Representation -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-16 h-16 bg-[#25D366] rounded-xl flex items-center justify-center shadow-md shadow-green-200 dark:shadow-none">
+<div class="w-10 h-10 bg-white rounded-full flex items-center justify-center" style="clip-path: circle(50% at 50% 50%);">
+<div class="w-full h-full bg-cover bg-center" data-alt="Official WhatsApp brand logo in green" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvayByDGsw9tLyM5-Co999u5LMmQNDz2b8k-irXdrKBwZzivawEyJaqUwJpQH7YZQJ8UB4g-z_C0SuDlAnWQtQoHs3AEvIQUgICj2QHZnVQxUzY3QI812ir3Q7AKBFymQigo3gs93nfRxrDsRTxne-9WwPnSkHPVqL8RtLtZfoVUOdPdRCfyGyrCVx3E7R2wtT0Vb9rgn7-mYchbqAb7V10i_HelNPuIX-FkpJl8jcB2zLCuDxrCVN3qZ8N9rELGY6UQzXsalFqvkf');"></div>
+</div>
+</div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider">App Real</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-gray-50 dark:border-zinc-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<div class="flex flex-col">
+<p class="text-[#111811] dark:text-white text-sm font-bold">Transición segura</p>
+<p class="text-[#608a60] dark:text-gray-400 text-xs">De simulador a tu WhatsApp real</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions Footer -->
+<div class="w-full max-w-md px-6 pb-12 space-y-4">
+<!-- Primary Button -->
+<button class="w-full h-[56px] bg-primary hover:bg-primary/90 text-white font-bold text-lg rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20 transition-colors">
+            Abrir mi WhatsApp
+            <span class="material-symbols-outlined">open_in_new</span>
+</button>
+<!-- Secondary Button -->
+<button class="w-full h-[56px] bg-transparent border-2 border-gray-200 dark:border-zinc-700 text-gray-600 dark:text-gray-300 font-bold text-lg rounded-xl hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors">
+            Practicar de nuevo
+        </button>
+<!-- Reassurance Text -->
+<p class="text-gray-500 dark:text-gray-500 text-sm text-center px-4 leading-snug">
+            Tu progreso está guardado. Siempre puedes volver aquí si tienes dudas o quieres refrescar lo aprendido.
+        </p>
+</div>
+<!-- Safe Area Spacing for iOS -->
+<div class="h-6 bg-transparent"></div>
+</body></html>

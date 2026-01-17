@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verificación de Código SMS - TecnoAmigo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#258cf4",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                        "success-green": "#4CAF50"
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom styles for the verification inputs to match the 50x60px requirement */
+        .otp-input {
+            width: 50px;
+            height: 60px;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-[430px] mx-auto bg-white dark:bg-background-dark shadow-xl overflow-x-hidden">
+<!-- TopAppBar -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between">
+<button aria-label="Volver" class="text-[#111418] dark:text-white flex size-12 shrink-0 items-center justify-start focus:outline-none">
+<span class="material-symbols-outlined text-3xl">arrow_back</span>
+</button>
+<div class="w-12"></div> <!-- Spacer for centering -->
+</div>
+<div class="flex flex-col items-center px-6 pt-8">
+<!-- Large SMS Icon -->
+<div class="flex items-center justify-center bg-primary/10 dark:bg-primary/20 rounded-full p-6 mb-8">
+<span class="material-symbols-outlined text-primary" style="font-size: 80px;">sms</span>
+</div>
+<!-- HeadlineText -->
+<h1 class="text-[#111418] dark:text-white tracking-tight text-2xl font-bold leading-tight text-center pb-2">
+                Ingresa el código
+            </h1>
+<!-- BodyText -->
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal pb-8 px-4 text-center">
+                Enviamos un código a <span class="font-semibold text-[#111418] dark:text-white">+56 9 1234 5678</span>
+</p>
+<!-- ConfirmationCode Inputs -->
+<div class="flex justify-center py-3">
+<fieldset class="relative flex gap-2 sm:gap-3">
+<!-- Iterating 6 boxes: 50x60px -->
+<input class="otp-input flex text-center text-xl font-bold rounded-lg border-2 border-[#dbe0e6] dark:border-gray-700 bg-transparent focus:outline-none focus:border-success-green dark:focus:border-success-green transition-colors text-[#111418] dark:text-white" maxlength="1" onkeyup="if(this.value.length==1) this.nextElementSibling?.focus()" placeholder="-" type="number" value=""/>
+<input class="otp-input flex text-center text-xl font-bold rounded-lg border-2 border-[#dbe0e6] dark:border-gray-700 bg-transparent focus:outline-none focus:border-success-green dark:focus:border-success-green transition-colors text-[#111418] dark:text-white" maxlength="1" onkeyup="if(this.value.length==1) this.nextElementSibling?.focus()" placeholder="-" type="number" value=""/>
+<input class="otp-input flex text-center text-xl font-bold rounded-lg border-2 border-[#dbe0e6] dark:border-gray-700 bg-transparent focus:outline-none focus:border-success-green dark:focus:border-success-green transition-colors text-[#111418] dark:text-white" maxlength="1" onkeyup="if(this.value.length==1) this.nextElementSibling?.focus()" placeholder="-" type="number" value=""/>
+<input class="otp-input flex text-center text-xl font-bold rounded-lg border-2 border-[#dbe0e6] dark:border-gray-700 bg-transparent focus:outline-none focus:border-success-green dark:focus:border-success-green transition-colors text-[#111418] dark:text-white" maxlength="1" onkeyup="if(this.value.length==1) this.nextElementSibling?.focus()" placeholder="-" type="number" value=""/>
+<input class="otp-input flex text-center text-xl font-bold rounded-lg border-2 border-[#dbe0e6] dark:border-gray-700 bg-transparent focus:outline-none focus:border-success-green dark:focus:border-success-green transition-colors text-[#111418] dark:text-white" maxlength="1" onkeyup="if(this.value.length==1) this.nextElementSibling?.focus()" placeholder="-" type="number" value=""/>
+<input class="otp-input flex text-center text-xl font-bold rounded-lg border-2 border-[#dbe0e6] dark:border-gray-700 bg-transparent focus:outline-none focus:border-success-green dark:focus:border-success-green transition-colors text-[#111418] dark:text-white" maxlength="1" onkeyup="if(this.value.length==1) this.blur()" placeholder="-" type="number" value=""/>
+</fieldset>
+</div>
+<!-- Footer Section: Timer and Link -->
+<div class="mt-12 flex flex-col items-center gap-4">
+<div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-base">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Reenviar código en <span class="font-medium">0:45</span></span>
+</div>
+<button class="text-primary text-base font-semibold hover:underline bg-transparent border-none cursor-pointer py-2">
+                    No recibí el código
+                </button>
+</div>
+<!-- Verification Button (Additional component for UX completeness) -->
+<div class="w-full px-4 mt-auto pb-10 pt-12">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl transition-all shadow-lg active:scale-[0.98]">
+                    Verificar
+                </button>
+</div>
+</div>
+<!-- Decorative placeholder image to fit components list usage -->
+<div class="hidden">
+<div class="w-full bg-center bg-no-repeat bg-cover aspect-auto" data-alt="Abstract blue tech pattern background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8-603kpl1aOn9qDuLUh85wm03oPI_dFueAmmRfutWCz_p66CNwgBnCCxEXHgYSzJaSEXwujxgoyU0m9kW-9qCyY23hujhjczLem8dRA0jfpFr9EeNdRNwahaICzjYTB3xiG77sEdGDXojjU0O6s04SFcRua86QehDkviPnkntbd4Z0bi3LQqCWAUHelMd9cjMPTAsVc5xYcB_WLZ2tCAEYPEuDRVrNMDJtt_NxJeCNhb1dUvakDfHT_jkpdCoST-2k__1D5RVfO3V");'></div>
+</div>
+</div>
+</body></html>

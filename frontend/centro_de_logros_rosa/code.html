@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Centro de Logros Rosa - TecnoAmigo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .medal-shadow {
+            box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1);
+        }
+        .trophy-gradient {
+            background: linear-gradient(135deg, #e6ffed 0%, #c1f9d4 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen text-[#111813] dark:text-white">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-800 px-4 py-3">
+<div class="flex items-center justify-between">
+<div class="flex-1">
+<h1 class="text-[#13ec5b] text-[26px] font-bold leading-tight tracking-tight">Mis Logros</h1>
+<p class="text-sm text-gray-500 dark:text-gray-400">Tu camino digital, paso a paso</p>
+</div>
+<button class="flex size-11 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400" style="font-size: 28px;">close</span>
+</button>
+</div>
+</header>
+<main class="max-w-md mx-auto pb-10">
+<!-- Featured Card -->
+<div class="p-4">
+<div class="trophy-gradient dark:bg-gradient-to-br dark:from-green-900/30 dark:to-green-800/20 rounded-xl p-6 flex flex-col items-center text-center border border-white dark:border-green-900/50 shadow-sm">
+<div class="w-[100px] h-[100px] mb-4 flex items-center justify-center">
+<div class="relative">
+<span class="material-symbols-outlined text-[100px] text-yellow-500" style="font-variation-settings: 'FILL' 1">emoji_events</span>
+</div>
+</div>
+<p class="text-[#111813] dark:text-white text-xl font-bold mb-1">¡Excelente progreso, Rosa!</p>
+<div class="bg-white/60 dark:bg-green-500/20 px-4 py-1.5 rounded-full border border-white/50">
+<p class="text-green-700 dark:text-primary text-sm font-bold">12 logros desbloqueados</p>
+</div>
+</div>
+</div>
+<!-- Section Header -->
+<div class="px-4 pt-4">
+<h3 class="text-[#111813] dark:text-white text-lg font-bold">Tus Medallas</h3>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Sigue aprendiendo y ganando medallas</p>
+</div>
+<!-- Achievement Grid -->
+<div class="grid grid-cols-2 gap-4 p-4">
+<!-- Medal: Primera Racha -->
+<div class="bg-white dark:bg-gray-900 p-4 rounded-xl flex flex-col items-center text-center medal-shadow border border-gray-50 dark:border-gray-800">
+<div class="size-[80px] rounded-full bg-primary/20 flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[#13ec5b] text-4xl" style="font-variation-settings: 'FILL' 1">local_fire_department</span>
+</div>
+<p class="text-sm font-bold text-[#111813] dark:text-white">Primera Racha</p>
+<p class="text-[10px] text-gray-500 uppercase tracking-wider mt-1">¡Conseguido!</p>
+</div>
+<!-- Medal: Primer Mensaje -->
+<div class="bg-white dark:bg-gray-900 p-4 rounded-xl flex flex-col items-center text-center medal-shadow border border-gray-50 dark:border-gray-800">
+<div class="size-[80px] rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-blue-500 text-4xl" style="font-variation-settings: 'FILL' 1">chat_bubble</span>
+</div>
+<p class="text-sm font-bold text-[#111813] dark:text-white">Primer Mensaje</p>
+<p class="text-[10px] text-gray-500 uppercase tracking-wider mt-1">¡Conseguido!</p>
+</div>
+<!-- Medal: Estudiante Dedicado -->
+<div class="bg-white dark:bg-gray-900 p-4 rounded-xl flex flex-col items-center text-center medal-shadow border border-gray-50 dark:border-gray-800">
+<div class="size-[80px] rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-orange-500 text-4xl" style="font-variation-settings: 'FILL' 1">school</span>
+</div>
+<p class="text-sm font-bold text-[#111813] dark:text-white">Estudiante Dedicado</p>
+<p class="text-[10px] text-gray-500 uppercase tracking-wider mt-1">¡Conseguido!</p>
+</div>
+<!-- Medal: Madrugador Digital -->
+<div class="bg-white dark:bg-gray-900 p-4 rounded-xl flex flex-col items-center text-center medal-shadow border border-gray-50 dark:border-gray-800">
+<div class="size-[80px] rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-purple-500 text-4xl" style="font-variation-settings: 'FILL' 1">alarm</span>
+</div>
+<p class="text-sm font-bold text-[#111813] dark:text-white">Madrugador Digital</p>
+<p class="text-[10px] text-gray-500 uppercase tracking-wider mt-1">¡Conseguido!</p>
+</div>
+<!-- Locked Medal: Maestro Digital -->
+<div class="bg-white/50 dark:bg-gray-900/50 p-4 rounded-xl flex flex-col items-center text-center border border-dashed border-gray-300 dark:border-gray-700 opacity-80">
+<div class="relative size-[80px] rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-gray-400 text-4xl">psychology</span>
+<div class="absolute -bottom-1 -right-1 bg-white dark:bg-gray-700 size-7 rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-gray-400 text-lg">lock</span>
+</div>
+</div>
+<p class="text-sm font-bold text-gray-500 dark:text-gray-400">Maestro Digital</p>
+<!-- Progress Bar -->
+<div class="w-full mt-3">
+<div class="flex justify-between text-[10px] text-gray-500 mb-1">
+<span>Progreso</span>
+<span>12/50</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 24%"></div>
+</div>
+</div>
+</div>
+<!-- Locked Medal: Explorador -->
+<div class="bg-white/50 dark:bg-gray-900/50 p-4 rounded-xl flex flex-col items-center text-center border border-dashed border-gray-300 dark:border-gray-700 opacity-80">
+<div class="relative size-[80px] rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-gray-400 text-4xl">explore</span>
+<div class="absolute -bottom-1 -right-1 bg-white dark:bg-gray-700 size-7 rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-gray-400 text-lg">lock</span>
+</div>
+</div>
+<p class="text-sm font-bold text-gray-500 dark:text-gray-400">Gran Explorador</p>
+<div class="w-full mt-3">
+<div class="flex justify-between text-[10px] text-gray-500 mb-1">
+<span>Progreso</span>
+<span>3/10</span>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 30%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- BodyText encouragement -->
+<div class="p-6 text-center">
+<p class="text-gray-500 dark:text-gray-400 text-sm italic">"El aprendizaje es un tesoro que te seguirá a todas partes."</p>
+<div class="mt-6">
+<button class="bg-primary text-background-dark font-bold px-8 py-3 rounded-xl shadow-lg active:scale-95 transition-transform">
+                    Continuar Aprendiendo
+                </button>
+</div>
+</div>
+</main>
+</body></html>

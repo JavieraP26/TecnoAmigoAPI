@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00a800",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#0f230f",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Perfil de Usuario - TecnoAmigo</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#101810] dark:text-white antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col max-w-md mx-auto overflow-x-hidden pb-10">
+<!-- TopAppBar -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-[#101810] dark:text-white flex size-12 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-3xl">arrow_back</span>
+</div>
+<h2 class="text-[#101810] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Mi Perfil</h2>
+</div>
+<div class="px-5">
+<!-- ProfileHeader -->
+<div class="flex flex-col items-center py-6 gap-4">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-[120px] w-[120px] border-4 border-primary" data-alt="Retrato de una mujer sonriente de 70 años" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5051gpaejkp38Fh3wiGrHM70HkJkAaSpxot3dSNsch00eM4Gq8f2Zcw0mKpjPGa-KcyAANBT54QqKRNJjqhoae5FGKVZfJIj8ZKONaylmAbM1BP1b3U4Tqs_GaicJ7nwoAbiG7VT_s5JSQmqNxaNfFnCoymwRAt8P4XB0aJAyyK6izhVxcekdztlzPtT62ycDOL9wVvQf0B-6CRTFmh62mRV16qygw56t83elG1FcIJbyPor34vHoswMeufjLHybaURAQhkrt8DbT");'>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center text-center">
+<h1 class="text-[#101810] dark:text-white text-[28px] font-bold leading-tight">Rosa García</h1>
+<p class="text-[#5e8d5e] dark:text-[#a0cfa0] text-lg font-medium">72 años - Santiago</p>
+</div>
+</div>
+<!-- SectionHeader: Mi Progreso -->
+<div class="flex items-center justify-between pt-4">
+<h3 class="text-[#101810] dark:text-white text-xl font-bold leading-tight">Mi progreso</h3>
+</div>
+<!-- Progress Stats Grid -->
+<div class="flex gap-4 py-4">
+<div class="flex flex-1 flex-col gap-2 rounded-xl p-4 border-2 border-primary/20 bg-white dark:bg-zinc-900 shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">menu_book</span>
+<p class="text-[#101810] dark:text-gray-300 text-sm font-medium">Lecciones</p>
+<p class="text-[#101810] dark:text-white text-2xl font-bold">12</p>
+</div>
+<div class="flex flex-1 flex-col gap-2 rounded-xl p-4 border-2 border-primary/20 bg-white dark:bg-zinc-900 shadow-sm">
+<span class="material-symbols-outlined text-orange-500 text-3xl">local_fire_department</span>
+<p class="text-[#101810] dark:text-gray-300 text-sm font-medium">Racha</p>
+<p class="text-[#101810] dark:text-white text-2xl font-bold">7 días</p>
+</div>
+</div>
+<!-- Autonomy Card -->
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-sm bg-white dark:bg-zinc-900 border border-[#dae7da]/50 overflow-hidden">
+<div class="p-5 flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<p class="text-[#101810] dark:text-white text-lg font-bold">Autonomía Digital</p>
+<span class="text-primary font-bold">6/10</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4">
+<div class="bg-primary h-4 rounded-full" style="width: 60%"></div>
+</div>
+<p class="text-[#5e8d5e] dark:text-[#a0cfa0] text-base font-medium">¡Vas por buen camino, Rosa!</p>
+</div>
+</div>
+<!-- Settings Section -->
+<h3 class="text-[#101810] dark:text-white text-xl font-bold leading-tight pt-8 pb-4">Ajustes y Ayuda</h3>
+<div class="flex flex-col gap-3">
+<!-- Large List Item: Font Size -->
+<button class="flex items-center gap-4 bg-white dark:bg-zinc-900 p-4 rounded-xl border border-gray-100 dark:border-zinc-800 w-full active:bg-gray-50 min-h-[72px]">
+<div class="bg-primary/10 p-3 rounded-lg text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">format_size</span>
+</div>
+<span class="text-[#101810] dark:text-white text-lg font-medium flex-1 text-left">Ajustar tamaño de letra</span>
+<span class="material-symbols-outlined text-gray-400">chevron_right</span>
+</button>
+<!-- Large List Item: Reminders with Toggle -->
+<div class="flex items-center gap-4 bg-white dark:bg-zinc-900 p-4 rounded-xl border border-gray-100 dark:border-zinc-800 w-full min-h-[72px]">
+<div class="bg-primary/10 p-3 rounded-lg text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">notifications_active</span>
+</div>
+<span class="text-[#101810] dark:text-white text-lg font-medium flex-1 text-left">Activar recordatorios</span>
+<!-- Large Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-14 h-8 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Large List Item: Support -->
+<button class="flex items-center gap-4 bg-white dark:bg-zinc-900 p-4 rounded-xl border border-gray-100 dark:border-zinc-800 w-full active:bg-gray-50 min-h-[72px]">
+<div class="bg-primary/10 p-3 rounded-lg text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">contact_support</span>
+</div>
+<span class="text-[#101810] dark:text-white text-lg font-medium flex-1 text-left">Contactar soporte</span>
+<span class="material-symbols-outlined text-gray-400">chevron_right</span>
+</button>
+<!-- Large List Item: Logout -->
+<button class="flex items-center gap-4 bg-white dark:bg-zinc-900 p-4 rounded-xl border border-red-100 dark:border-red-900/30 w-full active:bg-red-50 min-h-[72px] mt-4">
+<div class="bg-red-50 dark:bg-red-900/20 p-3 rounded-lg text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">logout</span>
+</div>
+<span class="text-red-600 text-lg font-bold flex-1 text-left">Cerrar sesión</span>
+</button>
+</div>
+<!-- Footer Spacing -->
+<div class="h-10"></div>
+</div>
+</div>
+</body></html>

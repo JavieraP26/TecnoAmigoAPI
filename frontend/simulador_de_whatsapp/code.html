@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TecnoAmigo - Simulador de WhatsApp</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00a800",
+                        "whatsapp-teal": "#075E54",
+                        "instruction-yellow": "#FFF9C4",
+                        "background-light": "#f5f8f5",
+                        "background-dark": "#0f230f",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .ios-shadow {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-guide {
+            animation: bounce-subtle 1.5s infinite ease-in-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#101810] min-h-screen flex flex-col overflow-hidden">
+<!-- Top Utility Navigation -->
+<nav class="flex items-center justify-between px-4 py-2 bg-white dark:bg-background-dark border-b border-gray-200 dark:border-gray-800">
+<button class="flex items-center justify-center w-11 h-11 rounded-lg bg-red-50 text-red-600 font-bold border border-red-100">
+<span class="text-sm">Salir</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">TecnoAmigo</span>
+<span class="text-xs font-medium text-whatsapp-teal">Módulo: Mensajería</span>
+</div>
+<button class="flex items-center justify-center w-11 h-11 rounded-lg bg-primary/10 text-primary font-bold border border-primary/20">
+<span class="text-sm">Ayuda</span>
+</button>
+</nav>
+<!-- WhatsApp Header -->
+<header class="bg-whatsapp-teal text-white p-4 flex items-center gap-3 ios-shadow">
+<div class="flex items-center gap-3 flex-1">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12 border-2 border-white/20" data-alt="Retrato de una mujer joven sonriente" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3EN__9km460HVzWJHEL2JbUISg60fHhnV6YKMzIQ4OMX9Nt9jamhnzrxVBxkpv5b-PpHbR07bWaV19M3-FyTJwdXxSNXCASduTk1yDYybTyzyN5mENsz54IQgfVaCZCLnmoiRbATPdu8I36aPL6vRYTe-tv9PxqFhozlSlgnKaK1KkuTMKWJCVdo189lUuj6XAskd3bqdve8NXjWpTnrYhFtm0VajNBpWBR0Glq5wfW-2bv-5NyPu62Gi6koH_qlPVzK37oDrPCiX");'>
+</div>
+<div>
+<h1 class="text-xl font-bold leading-tight">María (hija)</h1>
+<p class="text-xs text-white/80 font-light flex items-center gap-1">
+<span class="w-2 h-2 bg-green-400 rounded-full"></span> en línea
+                </p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-white">videocam</span>
+<span class="material-symbols-outlined text-white">call</span>
+<span class="material-symbols-outlined text-white">more_vert</span>
+</div>
+</header>
+<!-- Instructional Banner -->
+<div class="bg-instruction-yellow p-4 border-b border-yellow-200 flex items-center justify-center shadow-sm">
+<h2 class="text-[#5D4037] text-xl font-bold text-center leading-tight">
+            Toca aquí y escribe tu mensaje
+        </h2>
+</div>
+<!-- Main Chat Area -->
+<main class="flex-1 overflow-y-auto p-4 space-y-4 bg-[#e5ddd5] dark:bg-stone-900 relative">
+<!-- Chat Date -->
+<div class="flex justify-center my-2">
+<span class="bg-[#dcf8c6]/50 dark:bg-green-900/30 px-3 py-1 rounded-lg text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase">Hoy</span>
+</div>
+<!-- Message 1 -->
+<div class="flex items-end gap-2 max-w-[85%]">
+<div class="flex flex-col gap-1 items-start">
+<div class="relative bg-white dark:bg-stone-800 text-[#101810] dark:text-gray-100 p-3 rounded-2xl rounded-bl-none shadow-sm">
+<p class="text-[18px] leading-relaxed">Hola mamá, ¿cómo estás?</p>
+<span class="block text-right text-[10px] text-gray-400 mt-1">10:45 AM</span>
+</div>
+</div>
+</div>
+<!-- Message 2 (with photo) -->
+<div class="flex items-end gap-2 max-w-[85%]">
+<div class="flex flex-col gap-1 items-start">
+<div class="relative bg-white dark:bg-stone-800 text-[#101810] dark:text-gray-100 p-2 rounded-2xl rounded-bl-none shadow-sm">
+<div class="bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-xl w-full mb-2" data-alt="Bebé sonriente jugando en el parque" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAXfleam0q8NuofRA1RnQVM6SEzqk4kk-2jxvxnwWDHsInuC3BnDpM3qXx9iNPDln_j7uj3Fb0BLWmmtHTfF-XxxFKxMvlEPjdh7m1mQ8isvx_TJsZ_H52ErcsoJ3acRbby5_oC59N4_W-hyIkC7Cxktpjhzlt9tAAGlihPJJtwCGTcFGyG7hKtyr5zUupjGLV_NVO36A5OO8qFTxvFQDedcp07SKSWlMsYV4fQ05U92yemBq83FHg5x_PDr0IoCoCOi0JMC_fBeWL1");'>
+</div>
+<p class="text-[18px] leading-relaxed px-1">Te envío foto del nieto</p>
+<span class="block text-right text-[10px] text-gray-400 mt-1">10:46 AM</span>
+</div>
+</div>
+</div>
+<!-- Semi-transparent Overlay for guidance -->
+<div class="absolute inset-0 bg-black/40 z-10 flex flex-col justify-end items-center pointer-events-none pb-24">
+<div class="animate-guide text-white flex flex-col items-center">
+<span class="material-symbols-outlined text-7xl font-light mb-2">arrow_downward</span>
+<p class="bg-black/60 px-4 py-2 rounded-full font-medium">Pulsa en la barra blanca</p>
+</div>
+</div>
+</main>
+<!-- Composer Section -->
+<div class="bg-[#f0f0f0] dark:bg-stone-900 p-3 z-20">
+<div class="flex items-center gap-2 max-w-4xl mx-auto">
+<div class="flex-1 flex items-center bg-white dark:bg-stone-800 rounded-full h-14 px-4 ios-shadow border-2 border-primary">
+<span class="material-symbols-outlined text-gray-400 mr-2">sentiment_satisfied</span>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-xl placeholder:text-gray-400" placeholder="Escribe tu mensaje aquí" type="text"/>
+<span class="material-symbols-outlined text-gray-400 ml-2 rotate-45">attach_file</span>
+<span class="material-symbols-outlined text-gray-400 ml-2">photo_camera</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="size-12 rounded-full bg-whatsapp-teal text-white flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-2xl">mic</span>
+</button>
+<button class="min-w-[80px] h-12 rounded-xl bg-primary text-white font-bold flex items-center justify-center gap-1 shadow-lg px-4">
+<span class="text-base">Enviar</span>
+<span class="material-symbols-outlined text-xl">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Home indicator (iOS style) -->
+<div class="h-6 bg-[#f0f0f0] dark:bg-stone-900 flex justify-center items-end pb-2">
+<div class="w-32 h-1.5 bg-gray-400 rounded-full"></div>
+</div>
+</body></html>

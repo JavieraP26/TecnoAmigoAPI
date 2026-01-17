@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detalle de Mi Racha</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .flame-pulse {
+            animation: pulse-orange 2s infinite ease-in-out;
+        }
+        @keyframes pulse-orange {
+            0% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.4)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(255, 69, 0, 0.7)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(255, 69, 0, 0.4)); }
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111813] dark:text-white min-h-screen pb-32">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="flex size-12 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center">Tu Racha</h2>
+<div class="flex size-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-full h-10 w-10 hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined">info</span>
+</button>
+</div>
+</div>
+</div>
+<main class="max-w-md mx-auto px-4">
+<!-- Main Streak Card -->
+<div class="mt-4 p-6 bg-gradient-to-br from-primary/30 to-primary/10 dark:from-primary/20 dark:to-transparent rounded-xl flex flex-col items-center text-center shadow-sm border border-primary/20">
+<div class="relative mb-4">
+<div class="w-[140px] h-[140px] flex items-center justify-center">
+<!-- Representing the flame icon -->
+<span class="material-symbols-outlined text-[100px] text-orange-500 flame-pulse" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="absolute -top-2 -right-2 bg-primary text-background-dark px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                    ¡Tu mejor racha!
+                </div>
+</div>
+<h1 class="text-6xl font-extrabold mb-1 tracking-tighter">7 días</h1>
+<p class="text-sm font-medium opacity-70">Último estudio: Hoy 9:30 AM</p>
+</div>
+<!-- SectionHeader: Calendar -->
+<div class="flex justify-between items-center mt-8 mb-4">
+<h3 class="text-lg font-bold leading-tight tracking-tight">Historial de 14 días</h3>
+<span class="text-xs font-semibold text-primary">Ver todo</span>
+</div>
+<!-- Horizontal Scroll Calendar -->
+<div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
+<!-- Dummy data for 14 days -->
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary border-2 border-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'wght' 600;">check_circle</span>
+</div>
+<p class="text-xs font-bold">Hoy</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<p class="text-xs font-medium opacity-60">S</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 text-gray-400">
+<span class="material-symbols-outlined">close</span>
+</div>
+<p class="text-xs font-medium opacity-60">V</p>
+</div>
+<!-- Generating more items to show scroll -->
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary"><span class="material-symbols-outlined">check_circle</span></div>
+<p class="text-xs font-medium opacity-60">J</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary"><span class="material-symbols-outlined">check_circle</span></div>
+<p class="text-xs font-medium opacity-60">M</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary"><span class="material-symbols-outlined">check_circle</span></div>
+<p class="text-xs font-medium opacity-60">M</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary"><span class="material-symbols-outlined">check_circle</span></div>
+<p class="text-xs font-medium opacity-60">L</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 text-gray-400"><span class="material-symbols-outlined">close</span></div>
+<p class="text-xs font-medium opacity-60">D</p>
+</div>
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary"><span class="material-symbols-outlined">check_circle</span></div>
+<p class="text-xs font-medium opacity-60">S</p>
+</div>
+</div>
+<!-- Reminder Card -->
+<div class="mt-8 bg-yellow-100 dark:bg-yellow-900/40 p-5 rounded-xl border border-yellow-200 dark:border-yellow-800/50 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-yellow-400 dark:bg-yellow-500 p-2 rounded-full">
+<span class="material-symbols-outlined text-background-dark">notifications_active</span>
+</div>
+<div>
+<p class="font-bold text-background-dark dark:text-yellow-100">Recordatorio diario</p>
+<p class="text-xs text-background-dark/70 dark:text-yellow-100/70">No rompas tu racha hoy</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-14 h-8 bg-black/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- SectionHeader: Benefits -->
+<h3 class="text-lg font-bold leading-tight tracking-tight mt-8 mb-4">Beneficios de estudiar</h3>
+<div class="flex flex-col gap-4 mb-8">
+<!-- Benefit Card 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-white/5 p-4 rounded-xl shadow-sm">
+<div class="size-14 bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center rounded-xl shrink-0">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400">psychology</span>
+</div>
+<div>
+<p class="font-bold">Mejora tu memoria</p>
+<p class="text-sm opacity-70">La repetición diaria fortalece las conexiones neuronales.</p>
+</div>
+</div>
+<!-- Benefit Card 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-white/5 p-4 rounded-xl shadow-sm">
+<div class="size-14 bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center rounded-xl shrink-0">
+<span class="material-symbols-outlined text-orange-600 dark:text-orange-400">verified_user</span>
+</div>
+<div>
+<p class="font-bold">Genera confianza</p>
+<p class="text-sm opacity-70">Ver tu progreso constante te motiva a seguir aprendiendo.</p>
+</div>
+</div>
+<!-- Benefit Card 3 -->
+<div class="flex items-center gap-4 bg-white dark:bg-white/5 p-4 rounded-xl shadow-sm">
+<div class="size-14 bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center rounded-xl shrink-0">
+<span class="material-symbols-outlined text-purple-600 dark:text-purple-400">smartphone</span>
+</div>
+<div>
+<p class="font-bold">Crea hábito digital</p>
+<p class="text-sm opacity-70">Transforma el uso de tu celular en una herramienta de crecimiento.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Primary Button -->
+<div class="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background-light dark:from-background-dark via-background-light dark:via-background-dark to-transparent">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold py-4 rounded-full shadow-lg transition-transform active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">auto_stories</span>
+                Estudiar ahora
+            </button>
+</div>
+</div>
+</body></html>

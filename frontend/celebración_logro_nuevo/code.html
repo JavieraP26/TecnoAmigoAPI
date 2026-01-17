@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec6a",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102217",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .backdrop-blur-md {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .medal-glow {
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased overflow-hidden">
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
+<!-- Confetti Background Layer (Decorative SVG or Pattern) -->
+<div class="absolute inset-0 pointer-events-none opacity-40" data-alt="colorful abstract confetti particles falling down">
+<div class="absolute top-10 left-10 w-4 h-4 rounded-full bg-primary rotate-45"></div>
+<div class="absolute top-20 right-20 w-3 h-3 bg-yellow-400 -rotate-12"></div>
+<div class="absolute bottom-40 left-1/4 w-5 h-2 bg-blue-400 rotate-90"></div>
+<div class="absolute top-1/3 right-1/4 w-4 h-4 rounded-full bg-pink-400"></div>
+<div class="absolute top-1/2 left-10 w-3 h-6 bg-primary/60 -rotate-45"></div>
+<div class="absolute bottom-20 right-10 w-4 h-4 bg-yellow-400 rotate-12"></div>
+</div>
+<!-- Achievement Card -->
+<div class="relative w-full max-w-sm bg-white dark:bg-zinc-900 rounded-xl shadow-2xl overflow-hidden flex flex-col items-center pt-10 pb-8 px-6">
+<!-- Headline Text (Customized Component) -->
+<div class="mb-4">
+<h2 class="text-primary tracking-tight text-[28px] font-bold leading-tight text-center">
+                    ¡Nuevo logro!
+                </h2>
+</div>
+<!-- Medal Visual Section -->
+<div class="relative mb-6">
+<!-- Golden Glow -->
+<div class="absolute inset-0 bg-yellow-400/20 blur-3xl rounded-full scale-125 medal-glow"></div>
+<!-- Medal Container -->
+<div class="relative w-[180px] h-[180px] rounded-full bg-gradient-to-tr from-primary via-[#00c853] to-green-300 flex items-center justify-center shadow-lg ring-8 ring-white/10">
+<span class="material-symbols-outlined text-white text-[90px] drop-shadow-md" data-icon="local_fire_department">
+                        local_fire_department
+                    </span>
+<!-- Decorative Ring -->
+<div class="absolute inset-2 border-2 border-white/30 rounded-full"></div>
+</div>
+</div>
+<!-- Title & Body Text -->
+<div class="text-center space-y-2 mb-6">
+<h1 class="text-zinc-900 dark:text-white text-[24px] font-bold leading-tight tracking-tight">
+                    Primera Racha
+                </h1>
+<p class="text-zinc-500 dark:text-zinc-400 text-[18px] font-normal leading-normal px-4">
+                    Completaste lecciones 3 días seguidos
+                </p>
+</div>
+<!-- Meta/Motivational Text -->
+<div class="mb-8">
+<p class="text-primary text-[18px] font-medium leading-normal text-center flex items-center justify-center gap-1">
+                    ¡Sigue así, Rosa! <span class="material-symbols-outlined text-[20px]" data-icon="auto_awesome">auto_awesome</span>
+</p>
+</div>
+<!-- Primary Action Button -->
+<div class="w-full px-2">
+<button class="w-full h-[56px] bg-primary hover:bg-primary/90 text-white text-[18px] font-bold rounded-full shadow-lg shadow-primary/20 transition-all active:scale-95">
+                    Continuar
+                </button>
+</div>
+</div>
+</div>
+<!-- Hidden Background Content (Simulation of app underneath) -->
+<div class="w-full h-screen p-6 opacity-30 select-none pointer-events-none">
+<header class="flex justify-between items-center mb-8">
+<div class="w-10 h-10 rounded-full bg-zinc-200"></div>
+<div class="h-6 w-32 bg-zinc-200 rounded-full"></div>
+<div class="w-10 h-10 rounded-full bg-zinc-200"></div>
+</header>
+<div class="space-y-4">
+<div class="h-40 w-full bg-zinc-100 rounded-lg"></div>
+<div class="h-10 w-3/4 bg-zinc-100 rounded-full"></div>
+<div class="h-10 w-full bg-zinc-100 rounded-full"></div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-32 bg-zinc-100 rounded-lg"></div>
+<div class="h-32 bg-zinc-100 rounded-lg"></div>
+</div>
+</div>
+</div>
+</body></html>

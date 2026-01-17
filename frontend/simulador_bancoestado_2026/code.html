@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Simulador BancoEstado 2026</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f57a00",
+                        "banco-blue": "#1565C0",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#23190f",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .tricolor-stripe {
+            background: linear-gradient(to right, #0039a6 33.33%, #ffffff 33.33%, #ffffff 66.66%, #d52b1e 66.66%);
+            height: 4px;
+            width: 100%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#181410] dark:text-white min-h-screen pb-24">
+<!-- TopAppBar -->
+<div class="sticky top-0 z-50 bg-primary px-4 py-3 flex items-center justify-between shadow-md">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-white text-3xl">menu</span>
+<div class="flex flex-col">
+<span class="text-white font-bold text-lg leading-tight">BancoEstado</span>
+<span class="text-white/90 text-xs font-medium">170 años</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-white">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+</div>
+</div>
+<!-- Simulator Warning Banner -->
+<div class="bg-[#FFEB3B] p-3 flex items-center justify-between border-b border-yellow-400">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-800">info</span>
+<p class="text-amber-900 text-sm font-bold uppercase tracking-tight">SIMULADOR - Datos no reales</p>
+</div>
+<span class="material-symbols-outlined text-amber-800 animate-bounce">arrow_downward</span>
+</div>
+<main class="max-w-md mx-auto">
+<!-- Main Card: CuentaRUT -->
+<div class="p-4">
+<div class="bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden border border-zinc-100 dark:border-zinc-800">
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-zinc-500 dark:text-zinc-400 text-sm font-medium">CuentaRUT</p>
+<p class="text-[#181410] dark:text-white text-base font-normal">Cuenta 12.345.678-9</p>
+</div>
+<button class="text-primary p-1">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+<div class="mt-4">
+<p class="text-zinc-500 dark:text-zinc-400 text-sm mb-1">Saldo disponible</p>
+<p class="text-[#181410] dark:text-white text-[40px] font-bold leading-none tracking-tight">
+                            $450.320
+                        </p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex border-t border-zinc-100 dark:border-zinc-800">
+<button class="flex-1 py-4 bg-banco-blue text-white font-bold text-base flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">list_alt</span>
+                        Movimientos
+                    </button>
+<button class="flex-1 py-4 bg-white dark:bg-zinc-900 text-banco-blue font-bold text-base border-l border-zinc-100 dark:border-zinc-800 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">description</span>
+                        Cartolas
+                    </button>
+</div>
+</div>
+</div>
+<!-- Section: Tus Tarjetas -->
+<div class="mt-2">
+<div class="px-4 flex justify-between items-end pb-2">
+<h3 class="text-lg font-bold">Tus tarjetas</h3>
+<span class="text-primary text-sm font-bold">Ver todas</span>
+</div>
+<div class="px-4">
+<div class="relative bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-zinc-100 dark:border-zinc-800 overflow-hidden">
+<div class="tricolor-stripe"></div>
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-8 bg-zinc-800 rounded flex items-center justify-center text-[10px] text-white font-bold overflow-hidden">
+<div class="bg-gradient-to-br from-zinc-700 to-zinc-900 w-full h-full flex items-center justify-center relative">
+                                    VISA
+                                    <div class="absolute bottom-1 right-1 flex gap-0.5">
+<div class="w-2 h-2 rounded-full bg-red-500 opacity-80"></div>
+<div class="w-2 h-2 rounded-full bg-orange-400 opacity-80"></div>
+</div>
+</div>
+</div>
+<div>
+<p class="font-bold text-base">Tarjeta CuentaRUT</p>
+<p class="text-zinc-500 text-sm">Débito • •••• 5678</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-zinc-400">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Tus Ahorros (Scroll) -->
+<div class="mt-6">
+<h3 class="px-4 text-lg font-bold mb-3">Tus ahorros</h3>
+<div class="flex overflow-x-auto px-4 pb-4 gap-4 no-scrollbar">
+<!-- Ahorro Premium Card -->
+<div class="min-w-[280px] bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-sm border border-zinc-100 dark:border-zinc-800 flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">savings</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-zinc-500">Ahorro Premium</p>
+<p class="text-xl font-bold">$22</p>
+</div>
+<span class="material-symbols-outlined text-zinc-300">chevron_right</span>
+</div>
+<!-- Other Ahorro Placeholder -->
+<div class="min-w-[280px] bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-sm border border-zinc-100 dark:border-zinc-800 flex items-center gap-4 opacity-60">
+<div class="w-12 h-12 bg-zinc-100 rounded-full flex items-center justify-center text-zinc-400">
+<span class="material-symbols-outlined text-3xl">add</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-zinc-500">Nuevo Ahorro</p>
+<p class="text-base font-bold text-primary">Contratar</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Grid Section: ¿Qué necesitas hacer? -->
+<div class="mt-4 px-4">
+<h3 class="text-lg font-bold mb-4">¿Qué necesitas hacer?</h3>
+<div class="grid grid-cols-2 gap-4">
+<button class="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-100 dark:border-zinc-800 flex flex-col items-center justify-center gap-3 h-[120px] shadow-sm">
+<div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined text-3xl">shopping_cart</span>
+</div>
+<span class="text-sm font-bold text-center leading-tight">Pagar productos</span>
+</button>
+<button class="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-100 dark:border-zinc-800 flex flex-col items-center justify-center gap-3 h-[120px] shadow-sm">
+<div class="w-12 h-12 bg-green-50 dark:bg-green-900/20 rounded-full flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined text-3xl">receipt_long</span>
+</div>
+<span class="text-sm font-bold text-center leading-tight">Pagar servicios</span>
+</button>
+<button class="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-100 dark:border-zinc-800 flex flex-col items-center justify-center gap-3 h-[120px] shadow-sm">
+<div class="w-12 h-12 bg-orange-50 dark:bg-orange-900/20 rounded-full flex items-center justify-center text-orange-600">
+<span class="material-symbols-outlined text-3xl">send</span>
+</div>
+<span class="text-sm font-bold text-center leading-tight">Enviar dinero</span>
+</button>
+<button class="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-100 dark:border-zinc-800 flex flex-col items-center justify-center gap-3 h-[120px] shadow-sm">
+<div class="w-12 h-12 bg-purple-50 dark:bg-purple-900/20 rounded-full flex items-center justify-center text-purple-600">
+<span class="material-symbols-outlined text-3xl">shield_with_heart</span>
+</div>
+<span class="text-sm font-bold text-center leading-tight">Contratar seguro</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 px-2 py-2 pb-6 z-50">
+<div class="max-w-md mx-auto flex justify-around items-center">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[11px] font-bold">Inicio</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-zinc-400">
+<span class="material-symbols-outlined">sync_alt</span>
+<span class="text-[11px] font-medium">Transferir</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-zinc-400">
+<span class="material-symbols-outlined">security</span>
+<span class="text-[11px] font-medium">Seguridad</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-zinc-400">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="text-[11px] font-medium">Más</span>
+</button>
+</div>
+</nav>
+<!-- Additional Action Panel Style Footer -->
+<div class="p-4 mt-4 mb-20">
+<div class="flex flex-col items-center justify-center gap-4 rounded-xl border border-primary/20 bg-primary/5 p-6 text-center">
+<div class="flex flex-col gap-1">
+<p class="text-primary text-base font-bold">¿Necesitas ayuda con el simulador?</p>
+<p class="text-zinc-600 dark:text-zinc-400 text-sm">Estamos aquí para enseñarte a usar tu banca digital de forma segura.</p>
+</div>
+<button class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold">
+<span class="truncate">Ver Tutorial</span>
+</button>
+</div>
+</div>
+</body></html>
