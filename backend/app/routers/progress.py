@@ -4,13 +4,13 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.dependencies import get_db, get_current_user
 from app.models.user import User
-from app.schemas.progress import ProgressUpdate, ProgressResponse, CompletionResponse
+from app.schemas.progress import ProgressUpdate, ProgressResponse, CompletionResponse, WelcomeContext
 from app.services import progress_service
 
 router = APIRouter(prefix="/progress", tags=["progreso"])
 
 
-@router.get("/welcome", summary="Contexto de bienvenida al abrir la app")
+@router.get("/welcome", response_model=WelcomeContext, summary="Contexto de bienvenida al abrir la app")
 async def welcome_context(
     db: AsyncSession = Depends(get_db),
     user: User = Depends(get_current_user),

@@ -3,14 +3,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.dependencies import get_db, get_current_user
 from app.models.user import User
-from app.schemas.assessment import AssessmentRequest, AssessmentResult
+from app.schemas.assessment import AssessmentRequest, AssessmentResult, QuestionResponse
 from app.services import assessment_service
 from app.services.assessment_service import QUESTIONS
 
 router = APIRouter(prefix="/assessment", tags=["evaluación inicial"])
 
 
-@router.get("/questions")
+@router.get("/questions", response_model=list[QuestionResponse])
 async def get_questions(_: User = Depends(get_current_user)):
     """Devuelve las preguntas disponibles para la evaluación inicial."""
     return [

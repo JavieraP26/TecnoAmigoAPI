@@ -2,6 +2,11 @@ from pydantic import BaseModel, Field
 from app.models.content import ContentArea
 
 
+class QuestionResponse(BaseModel):
+    key: str
+    area: str
+
+
 class AssessmentAnswer(BaseModel):
     question_key: str
     answer_value: int = Field(..., ge=0, le=2)

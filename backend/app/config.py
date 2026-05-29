@@ -13,5 +13,15 @@ class Settings(BaseSettings):
     twilio_auth_token: str = ""
     twilio_phone_number: str = ""
 
+    # Orígenes permitidos para CORS, separados por coma
+    # Ej: "https://tecnoamigo.vercel.app,http://localhost:3000"
+    allowed_origins: str = "http://localhost:3000"
+
+    environment: str = "development"
+
+    @property
+    def cors_origins(self) -> list[str]:
+        return [o.strip() for o in self.allowed_origins.split(",") if o.strip()]
+
 
 settings = Settings()
