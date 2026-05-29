@@ -24,8 +24,9 @@ from app.main import app
 from app.core.dependencies import get_db
 from app.core.security import create_access_token
 from app.services.sms_service import SmsService, get_sms_service
+from app.services.pdf_service import PdfService, get_pdf_service
 from app.models.user import User
-from app.models.content import Lesson, ModuleType, ContentArea
+from app.models.content import Lesson, ModuleType, ContentArea, SimulatorCatalog
 from app.models.achievement import Achievement, TriggerType
 
 
@@ -69,9 +70,15 @@ async def db_session():
 
 # --- Cliente HTTP de test ------------------------------------------------
 
+class MockPdfService(PdfService):
+    async def generate_graduation_summary(self, data: dict) -> str:
+        return f"summaries/mock_graduacion_{data['user_id']}.pdf"
+
+
 @pytest_asyncio.fixture(scope="function")
 async def client(db_session: AsyncSession):
     mock_sms = MockSmsService()
+    mock_pdf = MockPdfService()
 
     async def override_get_db():
         yield db_session
@@ -79,8 +86,12 @@ async def client(db_session: AsyncSession):
     def override_get_sms():
         return mock_sms
 
+    def override_get_pdf():
+        return mock_pdf
+
     app.dependency_overrides[get_db] = override_get_db
     app.dependency_overrides[get_sms_service] = override_get_sms
+    app.dependency_overrides[get_pdf_service] = override_get_pdf
 
     async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
         yield ac, mock_sms
@@ -148,3 +159,24 @@ async def create_test_achievement(
     await db.commit()
     await db.refresh(achievement)
     return achievement
+
+
+async def create_test_simulator(
+    db: AsyncSession,
+    *,
+    slug: str = "whatsapp",
+    title: str = "WhatsApp",
+    content_area: ContentArea = ContentArea.comunicacion,
+    module_type: ModuleType = ModuleType.simulator,
+) -> SimulatorCatalog:
+    simulator = SimulatorCatalog(
+        slug=slug,
+        title=title,
+        content_area=content_area,
+        module_type=module_type,
+        is_active=True,
+    )
+    db.add(simulator)
+    await db.commit()
+    await db.refresh(simulator)
+    return simulator
