@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.routers import auth
+
 app = FastAPI(
     title="TecnoAmigo API",
     description="Plataforma de inclusión digital para adultos mayores en Chile.",
@@ -14,6 +16,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(auth.router)
 
 
 @app.get("/health", tags=["sistema"])

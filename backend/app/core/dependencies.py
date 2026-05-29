@@ -3,7 +3,7 @@ from typing import AsyncGenerator
 
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from jose import JWTError
+from jwt.exceptions import InvalidTokenError as JWTError
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 

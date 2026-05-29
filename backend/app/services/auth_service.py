@@ -1,0 +1,133 @@
+import random
+import uuid
+from datetime import datetime, timedelta, timezone
+
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select
+
+from app.models.user import User
+from app.models.auth import SmsVerification, RefreshToken
+from app.core.security import create_access_token, create_refresh_token, hash_token
+from app.services.sms_service import SmsService
+
+_CODE_TTL_MINUTES = 10
+_MAX_ACTIVE_CODES_PER_PHONE = 5
+
+
+def _generate_code() -> str:
+    return f"{random.randint(0, 999999):06d}"
+
+
+async def send_sms_code(phone_number: str, db: AsyncSession, sms: SmsService) -> None:
+    """Genera un OTP, lo persiste y lo envía por SMS."""
+    code = _generate_code()
+    expires_at = datetime.now(timezone.utc) + timedelta(minutes=_CODE_TTL_MINUTES)
+
+    verification = SmsVerification(
+        phone_number=phone_number,
+        code=code,
+        expires_at=expires_at,
+    )
+    db.add(verification)
+    await db.commit()
+
+    # El SMS se envía después del commit para no revertir si Twilio falla
+    await sms.send_verification_code(phone_number, code)
+
+
+async def verify_sms_and_login(
+    phone_number: str,
+    code: str,
+    db: AsyncSession,
+) -> tuple[User, str, str, bool]:
+    """
+    Valida el OTP. Si es correcto:
+      - Crea el usuario si no existe (registro implícito).
+      - Emite access_token + refresh_token.
+    Devuelve (user, access_token, refresh_token, is_new_user).
+    """
+    now = datetime.now(timezone.utc)
+
+    result = await db.execute(
+        select(SmsVerification)
+        .where(
+            SmsVerification.phone_number == phone_number,
+            SmsVerification.code == code,
+            SmsVerification.used == False,
+            SmsVerification.expires_at > now,
+        )
+        .order_by(SmsVerification.created_at.desc())
+        .limit(1)
+    )
+    verification = result.scalar_one_or_none()
+
+    if not verification:
+        raise ValueError("Código incorrecto o expirado.")
+
+    verification.used = True
+
+    result = await db.execute(select(User).where(User.phone_number == phone_number))
+    user = result.scalar_one_or_none()
+    is_new_user = user is None
+
+    if is_new_user:
+        user = User(phone_number=phone_number, phone_verified=True)
+        db.add(user)
+        await db.flush()  # Necesitamos el id antes de crear el token
+
+    access_token = create_access_token(user.id)
+    raw_refresh, token_hash, expires_at = create_refresh_token(user.id)
+
+    refresh = RefreshToken(
+        user_id=user.id,
+        token_hash=token_hash,
+        expires_at=expires_at,
+    )
+    db.add(refresh)
+    await db.commit()
+
+    return user, access_token, raw_refresh, is_new_user
+
+
+async def refresh_access_token(raw_refresh_token: str, db: AsyncSession) -> str:
+    """Valida el refresh token y emite un nuevo access token."""
+    from jwt.exceptions import InvalidTokenError
+    from app.core.security import decode_token
+
+    try:
+        payload = decode_token(raw_refresh_token)
+    except InvalidTokenError:
+        raise ValueError("Token inválido.")
+
+    if payload.get("type") != "refresh":
+        raise ValueError("Token inválido.")
+
+    token_hash = hash_token(raw_refresh_token)
+    now = datetime.now(timezone.utc)
+
+    result = await db.execute(
+        select(RefreshToken).where(
+            RefreshToken.token_hash == token_hash,
+            RefreshToken.revoked == False,
+            RefreshToken.expires_at > now,
+        )
+    )
+    stored = result.scalar_one_or_none()
+    if not stored:
+        raise ValueError("Sesión expirada. Por favor inicia sesión nuevamente.")
+
+    user_id = uuid.UUID(payload["sub"])
+    return create_access_token(user_id)
+
+
+async def logout(raw_refresh_token: str, db: AsyncSession) -> None:
+    """Revoca el refresh token, cerrando la sesión en este dispositivo."""
+    token_hash = hash_token(raw_refresh_token)
+
+    result = await db.execute(
+        select(RefreshToken).where(RefreshToken.token_hash == token_hash)
+    )
+    stored = result.scalar_one_or_none()
+    if stored:
+        stored.revoked = True
+        await db.commit()
