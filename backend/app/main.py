@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.routers import auth
+from app.core.logging_config import setup_logging
+from app.core.error_handlers import register_exception_handlers
+from app.routers import auth, lessons, progress, assessment
+
+setup_logging()
 
 app = FastAPI(
     title="TecnoAmigo API",
@@ -17,7 +21,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+register_exception_handlers(app)
+
 app.include_router(auth.router)
+app.include_router(lessons.router)
+app.include_router(progress.router)
+app.include_router(assessment.router)
 
 
 @app.get("/health", tags=["sistema"])

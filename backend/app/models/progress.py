@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime, date, timezone
-from sqlalchemy import SmallInteger, Boolean, DateTime, Date, ForeignKey, UniqueConstraint, String, Text, Integer
+from sqlalchemy import SmallInteger, Boolean, DateTime, Date, ForeignKey, UniqueConstraint, Integer
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.dialects.postgresql import UUID
 
@@ -38,16 +38,22 @@ class SimulatorSession(Base):
     completed: Mapped[bool] = mapped_column(Boolean, default=False)
 
 
-class Streak(Base):
-    __tablename__ = "streaks"
+class UserActivity(Base):
+    """
+    Registra presencia del usuario, sin presión ni contadores que generen culpa.
+    Sirve para mostrar un saludo cálido según cuánto tiempo pasó desde su última visita.
+    No hay racha, no hay penalización por ausencia.
+    """
+    __tablename__ = "user_activity"
 
     id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     user_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), unique=True
     )
-    current_streak: Mapped[int] = mapped_column(SmallInteger, default=0)
-    longest_streak: Mapped[int] = mapped_column(SmallInteger, default=0)
-    last_activity_date: Mapped[date | None] = mapped_column(Date)
+    first_visit_date: Mapped[date] = mapped_column(Date, nullable=False)
+    last_visit_date: Mapped[date] = mapped_column(Date, nullable=False)
+    # Días únicos de actividad (sin importar si fueron consecutivos)
+    total_active_days: Mapped[int] = mapped_column(Integer, default=1)
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
     )
