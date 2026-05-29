@@ -103,6 +103,12 @@ ACHIEVEMENTS = [
         "content_area": ContentArea.gobierno.value,
         "threshold": 1,
     },
+    {
+        "key": "domina_mi_telefono",
+        "trigger_type": TriggerType.area_complete,
+        "content_area": ContentArea.mi_telefono.value,
+        "threshold": 1,
+    },
     # --- Evaluación inicial completada ---
     {
         "key": "evaluacion_inicial",

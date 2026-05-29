@@ -5,6 +5,7 @@ from app.models.progress import UserProgress, SimulatorSession, UserActivity
 from app.models.achievement import Achievement, UserAchievement, TriggerType
 from app.models.community import LearningRequest, RequestVote, ExportedSummary, RequestStatus
 from app.models.assessment import AssessmentResponse
+from app.models.admin import AdminUser
 
 __all__ = [
     "User", "JourneyStage",
@@ -14,4 +15,5 @@ __all__ = [
     "Achievement", "UserAchievement", "TriggerType",
     "LearningRequest", "RequestVote", "ExportedSummary", "RequestStatus",
     "AssessmentResponse",
+    "AdminUser",
 ]

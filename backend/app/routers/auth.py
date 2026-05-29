@@ -1,7 +1,8 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, Request, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.dependencies import get_db, get_current_user
+from app.core.limiter import limiter
 from app.models.user import User
 from app.schemas.auth import (
     SendSmsRequest,
@@ -17,7 +18,9 @@ router = APIRouter(prefix="/auth", tags=["autenticación"])
 
 
 @router.post("/send-sms", status_code=status.HTTP_204_NO_CONTENT)
+@limiter.limit("3/10minute")
 async def send_sms(
+    request: Request,
     body: SendSmsRequest,
     db: AsyncSession = Depends(get_db),
     sms: SmsService = Depends(get_sms_service),

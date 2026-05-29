@@ -13,6 +13,9 @@ passlib[bcrypt]==1.7.4
 
 twilio==9.3.4
 fpdf2==2.8.7
+slowapi==0.1.9
+pyotp==2.9.0
+email-validator==2.2.0
 
 pytest==8.3.3
 pytest-asyncio==0.24.0

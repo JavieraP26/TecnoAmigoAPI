@@ -28,6 +28,7 @@ from app.services.pdf_service import PdfService, get_pdf_service
 from app.models.user import User
 from app.models.content import Lesson, ModuleType, ContentArea, SimulatorCatalog
 from app.models.achievement import Achievement, TriggerType
+from app.models.admin import AdminUser
 
 
 # --- Mock SMS -----------------------------------------------------------
@@ -51,6 +52,16 @@ class MockSmsService(SmsService):
 # --- BD en memoria -------------------------------------------------------
 
 TEST_DB_URL = "sqlite+aiosqlite:///:memory:"
+
+
+@pytest.fixture(autouse=True)
+def reset_rate_limits():
+    """Limpia contadores del rate limiter entre tests para que no interfieran."""
+    from app.core.limiter import limiter
+    try:
+        limiter._storage.reset()
+    except Exception:
+        pass
 
 
 @pytest_asyncio.fixture(scope="function")
@@ -159,6 +170,26 @@ async def create_test_achievement(
     await db.commit()
     await db.refresh(achievement)
     return achievement
+
+
+async def create_test_admin(
+    db: AsyncSession,
+    *,
+    email: str = "admin@test.com",
+    password: str = "TestPass1234!",
+) -> AdminUser:
+    from app.services.admin_auth_service import hash_password
+    admin = AdminUser(email=email, password_hash=hash_password(password))
+    db.add(admin)
+    await db.commit()
+    await db.refresh(admin)
+    return admin
+
+
+def admin_token_headers(admin: AdminUser) -> dict:
+    from app.core.security import create_admin_token
+    token = create_admin_token(admin.id)
+    return {"Authorization": f"Bearer {token}"}
 
 
 async def create_test_simulator(

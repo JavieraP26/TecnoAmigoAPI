@@ -1,5 +1,5 @@
 import uuid
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.dependencies import get_db, get_current_user
@@ -16,10 +16,12 @@ router = APIRouter(prefix="/requests", tags=["peticiones de aprendizaje"])
 
 @router.get("", response_model=list[LearningRequestResponse])
 async def list_requests(
+    limit: int = Query(20, ge=1, le=100),
+    offset: int = Query(0, ge=0),
     db: AsyncSession = Depends(get_db),
     user: User = Depends(get_current_user),
 ):
-    return await request_service.list_requests(db, user.id)
+    return await request_service.list_requests(db, user.id, limit=limit, offset=offset)
 
 
 @router.post("", response_model=CreateRequestResponse, status_code=status.HTTP_201_CREATED)
