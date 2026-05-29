@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.dependencies import get_db, get_current_user
@@ -22,7 +22,6 @@ async def send_sms(
     db: AsyncSession = Depends(get_db),
     sms: SmsService = Depends(get_sms_service),
 ):
-    """Envía un código de verificación al número indicado."""
     await auth_service.send_sms_code(body.phone_number, db, sms)
 
 
@@ -31,14 +30,9 @@ async def verify_sms(
     body: VerifySmsRequest,
     db: AsyncSession = Depends(get_db),
 ):
-    """Verifica el código SMS. Si es correcto, inicia sesión (o crea la cuenta)."""
-    try:
-        user, access_token, refresh_token, is_new_user = await auth_service.verify_sms_and_login(
-            body.phone_number, body.code, db
-        )
-    except ValueError as e:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
-
+    user, access_token, refresh_token, is_new_user = await auth_service.verify_sms_and_login(
+        body.phone_number, body.code, db
+    )
     return TokenResponse(
         access_token=access_token,
         refresh_token=refresh_token,
@@ -51,12 +45,7 @@ async def refresh(
     body: RefreshRequest,
     db: AsyncSession = Depends(get_db),
 ):
-    """Renueva el access token usando el refresh token."""
-    try:
-        access_token = await auth_service.refresh_access_token(body.refresh_token, db)
-    except ValueError as e:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=str(e))
-
+    access_token = await auth_service.refresh_access_token(body.refresh_token, db)
     return AccessTokenResponse(access_token=access_token)
 
 
@@ -66,5 +55,4 @@ async def logout(
     db: AsyncSession = Depends(get_db),
     _: User = Depends(get_current_user),
 ):
-    """Revoca el refresh token de este dispositivo."""
     await auth_service.logout(body.refresh_token, db)
