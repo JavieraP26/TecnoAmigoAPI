@@ -41,7 +41,7 @@ class SimulatorCatalog(Base):
     difficulty: Mapped[int] = mapped_column(SmallInteger, default=1)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     # Configuración libre por simulador (pasos, URLs, datos de práctica, etc.)
-    metadata: Mapped[dict] = mapped_column(JSON, default=dict)
+    config: Mapped[dict] = mapped_column(JSON, default=dict)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
     )
