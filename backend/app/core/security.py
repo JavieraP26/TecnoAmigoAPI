@@ -31,3 +31,35 @@ def create_refresh_token(user_id: uuid.UUID) -> tuple[str, str, datetime]:
 
 def decode_token(token: str) -> dict:
     return jwt.decode(token, settings.secret_key, algorithms=[ALGORITHM])
+
+
+_PRE_AUTH_EXPIRE_MINUTES = 5
+_ADMIN_TOKEN_EXPIRE_HOURS = 2
+
+
+def create_pre_auth_token(admin_id: uuid.UUID) -> str:
+    expire = datetime.now(timezone.utc) + timedelta(minutes=_PRE_AUTH_EXPIRE_MINUTES)
+    payload = {"sub": str(admin_id), "step": "mfa_pending", "exp": expire}
+    return jwt.encode(payload, settings.secret_key, algorithm=ALGORITHM)
+
+
+def create_admin_token(admin_id: uuid.UUID) -> str:
+    expire = datetime.now(timezone.utc) + timedelta(hours=_ADMIN_TOKEN_EXPIRE_HOURS)
+    payload = {"sub": str(admin_id), "role": "admin", "exp": expire}
+    return jwt.encode(payload, settings.secret_key, algorithm=ALGORITHM)
+
+
+def decode_pre_auth_token(token: str) -> dict:
+    from app.core.exceptions import UnauthorizedError
+    data = decode_token(token)
+    if data.get("step") != "mfa_pending":
+        raise UnauthorizedError("Token de pre-autenticación inválido.")
+    return data
+
+
+def decode_admin_token(token: str) -> dict:
+    from app.core.exceptions import ForbiddenError
+    data = decode_token(token)
+    if data.get("role") != "admin":
+        raise ForbiddenError("Acceso restringido al área de administración.")
+    return data

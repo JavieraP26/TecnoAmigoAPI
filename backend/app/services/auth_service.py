@@ -117,9 +117,12 @@ async def refresh_access_token(raw_refresh_token: str, db: AsyncSession) -> str:
         logger.warning("Refresh token no encontrado o revocado: hash=%s", token_hash[:12])
         raise UnauthorizedError("Sesión expirada. Por favor inicia sesión nuevamente.")
 
+    stored.revoked = True
     user_id = uuid.UUID(payload["sub"])
+    new_access = create_access_token(user_id)
+    await db.commit()
     logger.info("Access token renovado: user_id=%s", user_id)
-    return create_access_token(user_id)
+    return new_access
 
 
 async def logout(raw_refresh_token: str, db: AsyncSession) -> None:

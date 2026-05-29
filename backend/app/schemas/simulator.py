@@ -15,6 +15,7 @@ class SimulatorResponse(BaseModel):
     content_area: ContentArea
     icon: str | None
     difficulty: int
+    is_active: bool
 
 
 class StartSessionRequest(BaseModel):

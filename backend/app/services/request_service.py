@@ -73,12 +73,14 @@ async def create_request(
 async def list_requests(
     db: AsyncSession,
     user_id: uuid.UUID,
+    limit: int = 20,
+    offset: int = 0,
 ) -> list[LearningRequestResponse]:
     result = await db.execute(
-        select(LearningRequest).order_by(
-            LearningRequest.votes.desc(),
-            LearningRequest.created_at.desc(),
-        )
+        select(LearningRequest)
+        .order_by(LearningRequest.votes.desc(), LearningRequest.created_at.desc())
+        .limit(limit)
+        .offset(offset)
     )
     requests = result.scalars().all()
     voted_ids = await _get_voted_ids(db, user_id)
