@@ -26,6 +26,7 @@ from app.core.security import create_access_token
 from app.services.sms_service import SmsService, get_sms_service
 from app.models.user import User
 from app.models.content import Lesson, ModuleType, ContentArea
+from app.models.achievement import Achievement, TriggerType
 
 
 # --- Mock SMS -----------------------------------------------------------
@@ -127,3 +128,23 @@ async def create_test_lesson(
     await db.commit()
     await db.refresh(lesson)
     return lesson
+
+
+async def create_test_achievement(
+    db: AsyncSession,
+    *,
+    key: str = "test_achievement",
+    trigger_type: TriggerType = TriggerType.lesson_count,
+    content_area: str | None = None,
+    threshold: int = 1,
+) -> Achievement:
+    achievement = Achievement(
+        key=key,
+        trigger_type=trigger_type,
+        content_area=content_area,
+        threshold=threshold,
+    )
+    db.add(achievement)
+    await db.commit()
+    await db.refresh(achievement)
+    return achievement

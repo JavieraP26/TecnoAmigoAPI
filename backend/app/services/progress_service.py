@@ -8,7 +8,7 @@ from app.models.content import Lesson
 from app.models.progress import UserProgress, UserActivity
 from app.core.exceptions import NotFoundError, ConflictError
 from app.core.logging_config import get_logger
-from app.schemas.progress import ProgressResponse
+from app.schemas.progress import ProgressResponse, CompletionResponse
 
 logger = get_logger(__name__)
 
@@ -65,8 +65,12 @@ async def complete_lesson(
     db: AsyncSession,
     user_id: uuid.UUID,
     lesson_id: uuid.UUID,
-) -> ProgressResponse:
+) -> CompletionResponse:
+    from app.services import achievement_service
+
     progress = await _get_active_progress(db, user_id, lesson_id)
+    lesson = await db.get(Lesson, lesson_id)
+
     now = datetime.now(timezone.utc)
     progress.completion_pct = 100
     progress.completed = True
@@ -74,10 +78,14 @@ async def complete_lesson(
     progress.last_watched_at = now
 
     await _record_activity(db, user_id, now.date())
+    newly_earned = await achievement_service.evaluate_after_lesson(db, user_id, lesson)
     await db.commit()
 
-    logger.info("Lección completada: user_id=%s lesson_id=%s", user_id, lesson_id)
-    return ProgressResponse.model_validate(progress)
+    logger.info("Lección completada: user_id=%s lesson_id=%s logros=%s", user_id, lesson_id, newly_earned)
+    return CompletionResponse(
+        **ProgressResponse.model_validate(progress).model_dump(),
+        newly_earned_achievements=newly_earned,
+    )
 
 
 async def get_welcome_context(db: AsyncSession, user_id: uuid.UUID) -> dict:

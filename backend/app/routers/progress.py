@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.dependencies import get_db, get_current_user
 from app.models.user import User
-from app.schemas.progress import ProgressUpdate, ProgressResponse
+from app.schemas.progress import ProgressUpdate, ProgressResponse, CompletionResponse
 from app.services import progress_service
 
 router = APIRouter(prefix="/progress", tags=["progreso"])
@@ -41,7 +41,7 @@ async def update_progress(
     return await progress_service.update_progress(db, user.id, lesson_id, body.completion_pct)
 
 
-@router.post("/{lesson_id}/complete", response_model=ProgressResponse)
+@router.post("/{lesson_id}/complete", response_model=CompletionResponse)
 async def complete_lesson(
     lesson_id: uuid.UUID,
     db: AsyncSession = Depends(get_db),

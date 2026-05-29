@@ -75,7 +75,10 @@ async def submit_assessment(
         user.journey_stage = JourneyStage.learning
         logger.info("Usuario avanza a etapa 'learning': user_id=%s", user_id)
 
+    from app.services import achievement_service
+
     recommendations = await _get_recommendations(db, competency_map)
+    await achievement_service.evaluate_after_assessment(db, user_id)
     await db.commit()
 
     logger.info(

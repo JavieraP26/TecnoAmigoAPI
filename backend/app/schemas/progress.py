@@ -16,3 +16,8 @@ class ProgressResponse(BaseModel):
     completed: bool
     completed_at: datetime | None
     last_watched_at: datetime
+
+
+class CompletionResponse(ProgressResponse):
+    """Respuesta de /complete — incluye logros desbloqueados para que el frontend celebre."""
+    newly_earned_achievements: list[str] = []  # lista de keys

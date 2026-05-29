@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.logging_config import setup_logging
 from app.core.error_handlers import register_exception_handlers
-from app.routers import auth, lessons, progress, assessment
+from app.routers import auth, lessons, progress, assessment, users, achievements, requests
 
 setup_logging()
 
@@ -24,9 +24,12 @@ app.add_middleware(
 register_exception_handlers(app)
 
 app.include_router(auth.router)
+app.include_router(users.router)
 app.include_router(lessons.router)
 app.include_router(progress.router)
 app.include_router(assessment.router)
+app.include_router(achievements.router)
+app.include_router(requests.router)
 
 
 @app.get("/health", tags=["sistema"])
